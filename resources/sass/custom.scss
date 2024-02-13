@@ -1,0 +1,51 @@
+
+@font-face {
+    font-family: 'Russo';
+    src: url('../fonts/Russo_One/RussoOne-Regular.ttf');
+}
+.h-100dvh{
+    min-height: 100dvh;
+}
+.bg-opc{
+    background-color: #383f47;
+}
+
+.icon-link-hover:hover{
+    color: aliceblue;
+
+}
+.f-russo{
+    font-family: 'Russo';
+}
+
+.card-bg{
+    background: rgb(10,9,18);
+    background: linear-gradient(0deg, rgba(10,9,18,1) 0%, rgba(0, 0, 0, 0.205) 63%); 
+}
+
+#card-slide-custom::-webkit-scrollbar{
+    display: none;
+}
+
+@media (max-width:780px){
+    .side-bar{
+        position: absolute;
+        z-index: 1;
+        bottom: 0px;
+        background-color: #383f4700;
+
+        opacity: 100%;
+
+    }
+    .list-side-bar{
+        display: flex;
+        flex-direction: row !important;
+        min-width: 100dvw !important;
+        gap:2rem;
+        min-height: 20px;
+        margin-bottom: 0px;
+        background-color: #383f471e;
+
+
+    }
+}
