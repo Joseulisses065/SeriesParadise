@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Episode;
+use App\Models\Season;
 use Illuminate\Http\Request;
 
 class EpisodeController extends Controller
@@ -16,6 +17,10 @@ class EpisodeController extends Controller
         $episode->watched = true;
         $episode->save();
         return to_route('episodes.index',$episode->id);
+    }
+
+    public function create(Season $season){
+        return view('episodes.create')->with('episodes',$season->episodes)->with('season',$season);
     }
 
     

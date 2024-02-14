@@ -13,4 +13,8 @@ class SeasonController extends Controller
             return view('seasons.index')->with('seasons',$seasons)->with('midia',$midia);
         
     }
+    public function show(Midia $midia){
+        $seasons = $midia->seasons()->with('episodes')->get();
+        return view('seasons.show')->with('seasons',$seasons)->with('midia',$midia);
+    }
 }

@@ -51,29 +51,8 @@ class MidiaController extends Controller
         return view('midias.edit')->with('midia',$midia);
     }
    public function update(MidiaUpdateRequest $reques,Midia $midia){
-        $data = $reques->all();
 
-        
-        if($reques->file('banner')){
-            $banner = $reques->file('banner');
-            $data['banner'] = 'img/banner/'.$banner->hashName();
-            $banner->move(public_path('img/banner/'),$data['banner']);
-            unlink($midia->banner);
-
-        }else{
-            $data['banner'] = $midia->banner;
-        }
-        if($reques->file('img')){
-            $image = $reques->file('img');
-            $data['img'] = 'img/card/'.$image->hashName();
-            $image->move(public_path('img/card/'),$data['img']);
-            unlink($midia->img);
-        }else{
-            $data['img'] = $midia->img;
-        }
-    
-        $midia->fill($data);
-        $midia->save();
+        $midia = $this->repository->edt($reques, $midia);
         $msg = "O {$midia->type} {$midia->title} foi atualizado com sucesso" ;
         return to_route('midias.create')->with("msg",$msg);
 
@@ -96,5 +75,7 @@ class MidiaController extends Controller
         ->with('msg', "O {$midia->type} {$midia->title} removida com sucesso");    
     
     }
+
+    
     
 }

@@ -33,8 +33,8 @@
                                 </form>
                                 @else
                                 <div class="d-flex justify-content-center">
-                                    <a class="btn "
-                                        href="{{route('episodes.index',$season->episodes[$i])}}"><i class="bi bi-play-circle-fill text-dark fs-1"></i></a>
+                                    <a class="btn " href="{{route('episodes.index',$season->episodes[$i])}}"><i
+                                            class="bi bi-play-circle-fill text-dark fs-1"></i></a>
 
                                 </div>
                                 @endif
@@ -46,7 +46,21 @@
                         </div>
                     </div>
                     @endfor
+                    <div class="card text-bg-dark" style="max-width: 10rem; min-width: 200px;">
+                        <img  width="200" class="card-img" >
+                        <div class="card-img-overlay d-flex align-items-end p-0 card-bg w-100 h-100">
+                            <div class="d-flex flex-column justify-content-between p-1 w-100">
+                                <a href="{{route('episodes.create',$season->id)}}" class="btn btn-transparent mb-3"><i
+                                        class="bi bi-plus-circle-fill fs-1 text-danger pe"></i></button>
+                                </a>
+
+                            
+
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
+                    
 
 
 

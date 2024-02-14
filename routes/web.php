@@ -22,8 +22,12 @@ Route::get('/', [MidiaController::class,'index'])->name('home');
 Route::resource('/midias',MidiaController::class)->except(['show']);
 
 Route::get('/midias/{midia}/seasons', [SeasonController::class, 'index'])->name('seasons.index');
+Route::get('seasons/{midia}/episodes', [SeasonController::class, 'show'])->name('seasons.show');
+
 
 Route::get('/episodes/{episode}/update',[EpisodeController::class,'update'])->name('episodes.update');
+Route::get('/{season}/episodes/create',[EpisodeController::class,'create'])->name('episodes.create');
+
 
 Route::get('/episodes/{episode}',[EpisodeController::class,'index'])->name('episodes.index');
 
