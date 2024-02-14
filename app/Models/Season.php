@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     use HasFactory;
-    protected $fillable = ['number'];
+    protected $fillable = ['number','midia_id'];
 
     public function midias(){
         return $this->belongsTo(Midia::class);

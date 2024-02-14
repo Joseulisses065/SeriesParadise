@@ -11,60 +11,84 @@
                 <h2 class="f-russo text-danger">{{$midia->title}}</h2>
                 <p class="fs-5">{{$midia->description}}</p>
             </div>
-            <select class="form-select w-25 bg-dark text-light" aria-label="Default select example">
-                @foreach($seasons as $season)
-                <option value="1">{{$season->number}}</option>
+
+
+            @foreach($seasons as $season)
+            <div class="mb-3">
+                <div class="bg-opc d-flex justify-content-between text-danger rounded p-1 mb-3">
+                    <h2 class="fs-4  fw-bold m-0 pt-1 f-russo">SEASON - {{$season->number}}</h2>
+                    <div class="d-flex justify-between">
+                        <form action="{{Route('midias.edit',$midia->id)}}" method="GET">
+                            @csrf
+                            <button class="btn btn-transparent"><i
+                                    class="bi bi-pencil-square  text-light pe"></i></button>
+                        </form>
+                        <form action="{{Route('midias.destroy',$midia->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-transparent"><i class="bi bi-trash  text-danger pe"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-start gap-3 flex-wrap my-3">
+
+                    @for($i=0;$i<$season->episodes->count();$i++)
+                        <div class="card text-bg-dark" style="max-width: 10rem; min-width: 200px;">
+                            <img src="{{asset($season->episodes[$i]->banner)}}" class="card-img" alt="...">
+                            <div class="card-img-overlay d-flex align-items-end p-0 card-bg w-100 h-100">
+                                <div class="d-flex flex-column justify-content-between p-1 w-100">
+                                    @if($season->episodes[$i]->watched==false)
+                                    <form class="d-flex justify-content-center"
+                                        action="{{route('episodes.update',$season->episodes[$i])}}">@csrf <button
+                                            class="btn btn-transparent"><i
+                                                class="bi bi-play-circle-fill fs-1 text-danger pe"></i></button>
+                                    </form>
+                                    @else
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn " href="{{route('episodes.index',$season->episodes[$i])}}"><i
+                                                class="bi bi-play-circle-fill text-dark fs-1"></i></a>
+
+                                    </div>
+                                    @endif
+                                    <div>
+                                        <p class="fw-bold m-0">{{$season->number.':E'.$season->episodes[$i]->number+1}}
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        @endfor
+
+                        <div class="card text-bg-dark bg-dark"
+                            style="max-width: 10rem; min-width: 200px; min-height: 120px;">
+                            <img width="200" class="card-img">
+                            <div class="card-img-overlay d-flex align-items-end p-0 card-bg w-100 h-100">
+                                <div class="d-flex flex-column justify-content-between p-1 w-100">
+                                    <a href="{{route('episodes.create',$season->id)}}"
+                                        class="btn btn-transparent mb-3"><i
+                                            class="bi bi-plus-circle-fill fs-1 text-danger pe"></i></button>
+                                    </a>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
                 @endforeach
-
-            </select>
-            <div class="d-flex justify-content-start gap-3 flex-wrap mt-3">
-
-                @foreach($seasons as $season)
-                @for($i=0;$i<$season->episodes->count();$i++)
-                    <div class="card text-bg-dark" style="max-width: 10rem; min-width: 200px;">
-                        <img src="{{asset($season->episodes[$i]->banner)}}" class="card-img" alt="...">
-                        <div class="card-img-overlay d-flex align-items-end p-0 card-bg w-100 h-100">
-                            <div class="d-flex flex-column justify-content-between p-1 w-100">
-                                @if($season->episodes[$i]->watched==false)
-                                <form class="d-flex justify-content-center"
-                                    action="{{route('episodes.update',$season->episodes[$i])}}">@csrf <button
-                                        class="btn btn-transparent"><i
-                                            class="bi bi-play-circle-fill fs-1 text-danger pe"></i></button>
-                                </form>
-                                @else
-                                <div class="d-flex justify-content-center">
-                                    <a class="btn " href="{{route('episodes.index',$season->episodes[$i])}}"><i
-                                            class="bi bi-play-circle-fill text-dark fs-1"></i></a>
-
-                                </div>
-                                @endif
-                                <div>
-                                    <p class="fw-bold m-0">{{$season->number.':E'.$season->episodes[$i]->number+1}}</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    @endfor
-                    <div class="card text-bg-dark" style="max-width: 10rem; min-width: 200px;">
-                        <img  width="200" class="card-img" >
-                        <div class="card-img-overlay d-flex align-items-end p-0 card-bg w-100 h-100">
-                            <div class="d-flex flex-column justify-content-between p-1 w-100">
-                                <a href="{{route('episodes.create',$season->id)}}" class="btn btn-transparent mb-3"><i
-                                        class="bi bi-plus-circle-fill fs-1 text-danger pe"></i></button>
-                                </a>
-
-                            
-
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    
 
 
 
             </div>
+            <div class="mb-3">
+                <div class="bg-opc d-flex justify-content-center text-danger rounded p-1 mb-3">
+                    <a href="{{route('seasons.create',$midia->id)}}" class=""><i
+                            class="bi bi-plus-circle-fill fs-2 text-danger pe"></i></button>
+                    </a>
+                </div>
         </section>
 
 

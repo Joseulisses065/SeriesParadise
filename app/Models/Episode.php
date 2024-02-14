@@ -9,7 +9,7 @@ class Episode extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['number','banner'];
+    protected $fillable = ['number','title','banner','season_id','episode_link','description'];
    /* protected $casts = ['watched' => 'boolean'];*/
 
     public function season(){

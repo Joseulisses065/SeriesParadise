@@ -60,25 +60,7 @@
                 </div>
 
 
-                <div class="d-flex gap-3">
-
-                    <div class="form-group mb-3">
-                        <label for="seasons" class="form-label">Seasons</label>
-                        <input type="number" placeholder="Ex:2" class="form-control" value="{{old('seasons')}}"
-                            name="seasons" id="seasons" aria-describedby="seasons">
-                    </div>
-                    <div class="mb-3">
-                        <label for="episodeBanner" class="form-label">Episodes card</label>
-                        <input class="form-control" type="file" name="episodeBanner" id="episodeBanner">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="episodes" class="form-label">Episodes</label>
-                        <input type="number" placeholder="Ex:12" class="form-control" value="{{old('episodes')}}"
-                            name="episodes" id="episodes" aria-describedby="episodes">
-                    </div>
-
-
-                </div>
+                
 
                 <div class="form-group mb-3">
                     <label for="description" class="form-label">Description</label>
@@ -126,7 +108,7 @@
                                     </form>
                                     <a href="{{route('seasons.show',$midia->id)}}">
                                         <div class="btn btn-transparent">
-                                            <i class="bi bi-play-circle-fill fs-3 text-light pe"></i>
+                                            <i class="bi bi-plus-circle-fill fs-3 text-light pe"></i>
                                         </div>
                                     </a>
                                 </div>

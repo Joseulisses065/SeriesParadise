@@ -14,8 +14,11 @@ return new class extends Migration
         
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description');
             $table->unsignedTinyInteger('number');
             $table->string('banner');
+            $table->string('episode_link');
             $table->foreignId('season_id')->constrained()->onDelete('cascade');
         });
         

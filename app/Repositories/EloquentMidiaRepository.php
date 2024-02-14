@@ -26,6 +26,7 @@ class EloquentMidiaRepository implements MidiaRepository{
 
     
             $midia = Midia::create($data);
+            /*
             $seasons = [];
             for ($i=1; $i <= $request->seasons; $i++) { 
                 $seasons[]=[
@@ -36,6 +37,7 @@ class EloquentMidiaRepository implements MidiaRepository{
 
            
             Season::insert($seasons);
+            
             $episodes = [];
 
 
@@ -58,7 +60,7 @@ class EloquentMidiaRepository implements MidiaRepository{
                 }
             }
             Episode::insert($episodes);
-
+*/
             return $midia;
 
             
@@ -88,11 +90,9 @@ class EloquentMidiaRepository implements MidiaRepository{
             }else{
                 $data['img'] = $midia->img;
             }
-        
             $midia->fill($data);
             $midia->save();      
             return $midia;
-
         });
     }
 }
