@@ -63,8 +63,13 @@ class MidiaController extends Controller
 
     public function destroy(Midia $midia){
 
+        
+        
         $midia->delete();
-
+        $episodes = $midia->seasons()->with('episodes')->get();
+        foreach ($episodes as $epsode) {
+            unlink($epsode->episodes[0]['banner']);
+        }
         unlink($midia->banner);
         unlink($midia->img);
       

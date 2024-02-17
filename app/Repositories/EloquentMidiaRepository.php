@@ -26,6 +26,8 @@ class EloquentMidiaRepository implements MidiaRepository{
 
     
             $midia = Midia::create($data);
+            
+            
             /*
             $seasons = [];
             for ($i=1; $i <= $request->seasons; $i++) { 

@@ -15,6 +15,7 @@ class SeasonController extends Controller
             return view('seasons.index')->with('seasons',$seasons)->with('midia',$midia);
         
     }
+
     public function show(Midia $midia){
         $seasons = $midia->seasons()->with('episodes')->get();
         return view('seasons.show')->with('seasons',$seasons)->with('midia',$midia);
@@ -23,6 +24,7 @@ class SeasonController extends Controller
     public function create(Midia $midia){
         return view('seasons.create')->with('midia',$midia);
     }
+
     public function store(Request $request,Midia $midia){
       return DB::transaction(function()use($request,$midia){
          
@@ -37,5 +39,27 @@ class SeasonController extends Controller
         
         
 
+    }
+
+    public function destroy(Season $season){
+
+        $episodes = $season->episodes;
+
+        foreach ($episodes as $episode) {
+            unlink($episode->banner);
+        }
+
+        $season->delete();
+        return to_route('seasons.show',$season->midia_id);
+    }
+
+    public function edit(Season $season){
+        return view('seasons.edit')->with('season',$season);
+    }
+
+    public function update(Request $request,Season $season){
+        $season->fill($request->all());
+        $season->save();
+        return to_route('seasons.show',$season->midia_id);
     }
 }

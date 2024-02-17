@@ -18,12 +18,12 @@
                 <div class="bg-opc d-flex justify-content-between text-danger rounded p-1 mb-3">
                     <h2 class="fs-4  fw-bold m-0 pt-1 f-russo">SEASON - {{$season->number}}</h2>
                     <div class="d-flex justify-between">
-                        <form action="{{Route('midias.edit',$midia->id)}}" method="GET">
+                        <form action="{{Route('seasons.edit',$season->id)}}" method="get">
                             @csrf
                             <button class="btn btn-transparent"><i
                                     class="bi bi-pencil-square  text-light pe"></i></button>
                         </form>
-                        <form action="{{Route('midias.destroy',$midia->id)}}" method="POST">
+                        <form action="{{Route('seasons.destroy',$season->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-transparent"><i class="bi bi-trash  text-danger pe"></i></button>
@@ -38,19 +38,27 @@
                             <img src="{{asset($season->episodes[$i]->banner)}}" class="card-img" alt="...">
                             <div class="card-img-overlay d-flex align-items-end p-0 card-bg w-100 h-100">
                                 <div class="d-flex flex-column justify-content-between p-1 w-100">
-                                    @if($season->episodes[$i]->watched==false)
-                                    <form class="d-flex justify-content-center"
-                                        action="{{route('episodes.update',$season->episodes[$i])}}">@csrf <button
-                                            class="btn btn-transparent"><i
-                                                class="bi bi-play-circle-fill fs-1 text-danger pe"></i></button>
-                                    </form>
-                                    @else
-                                    <div class="d-flex justify-content-center">
-                                        <a class="btn " href="{{route('episodes.index',$season->episodes[$i])}}"><i
-                                                class="bi bi-play-circle-fill text-dark fs-1"></i></a>
 
+                                    <div class="d-flex justify-content-center">
+                                        <form action="{{Route('episodes.edit',$season->episodes[$i]->id)}}" method="get">
+                                            @csrf
+                                            <button class="btn btn-transparent"><i
+                                                    class="bi bi-pencil-square  text-light fs-3 pe"></i></button>
+                                        </form>
+                                        <form action="{{Route('episodes.destroy',$season->episodes[$i]->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-transparent"><i
+                                                    class="bi bi-trash  text-danger fs-3 pe"></i></button>
+                                        </form>
+                                        <form class="d-flex justify-content-center"
+                                            action="{{Route('episodes.index',$season->episodes[$i]->id)}}">@csrf <button
+                                                class="btn btn-transparent"><i
+                                                    class="bi bi-play-circle-fill fs-3 text-light pe"></i></button>
+                                        </form>
                                     </div>
-                                    @endif
+
+                                  
                                     <div>
                                         <p class="fw-bold m-0">{{$season->number.':E'.$season->episodes[$i]->number+1}}
                                         </p>
