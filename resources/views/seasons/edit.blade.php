@@ -34,7 +34,7 @@
                     <div class="form-group mb-3">
                         <label for="seasons" class="form-label">Seasons</label>
                         <input type="number" placeholder="Ex:2" class="form-control" value="{{$season->number}}"
-                            name="number" id="number" aria-describedby="seasons">
+                        name="seasons" id="seasons" aria-describedby="seasons">
                     </div>
 
 

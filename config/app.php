@@ -171,6 +171,8 @@ return [
 
         
         App\Providers\MidiaRepositoryProvider::class,
+        App\Providers\SeasonRepositoryProvider::class,
+        App\Providers\EpisodeRepositoryProvider::class,
     ])->toArray(),
 
     /*

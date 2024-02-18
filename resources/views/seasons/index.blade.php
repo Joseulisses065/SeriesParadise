@@ -27,7 +27,8 @@
                             <div class="d-flex flex-column justify-content-between p-1 w-100">
                                 @if($season->episodes[$i]->watched==false)
                                 <form class="d-flex justify-content-center"
-                                    action="{{route('episodes.update',$season->episodes[$i])}}">@csrf <button
+                                    action="{{route('episodes.view',$season->episodes[$i])}}" method="post"  >@csrf                                 @method('PUT')
+<button
                                         class="btn btn-transparent"><i
                                             class="bi bi-play-circle-fill fs-1 text-danger pe"></i></button>
                                 </form>

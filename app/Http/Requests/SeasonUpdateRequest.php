@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EpisodeCreateRequest extends FormRequest
+class SeasonUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,7 @@ class EpisodeCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>['required','min:5'],
-            'number'=>['required','min:1'],
-            'episode_link'=>['required','min:5'],
-            'description'=>['required','min:10','max:300'],
-            'banner'=>'required'        ];
+            'seasons'=>['required','min:1'],
+        ];
     }
 }

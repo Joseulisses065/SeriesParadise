@@ -6,7 +6,7 @@ use App\Http\Requests\MidiaCreateRequest;
 use App\Http\Requests\MidiaUpdateRequest;
 use App\Models\Midia;
 use App\Repositories\EloquentMidiaRepository;
-use App\Repositories\MidiaRepository;
+use App\Repositories\Interfaces\MidiaRepository;
 
 class MidiaController extends Controller
 {
@@ -43,7 +43,7 @@ class MidiaController extends Controller
     public function store(MidiaCreateRequest $request){
         
         $midia = $this->repository->add($request);
-        return to_route('seasons.create',$midia->id)->with('msg',"O {$midia->type} {$midia->title} foi adicionado com sucesso");        
+        return to_route('seasons.create',$midia->id)->with('msg',"O {$midia->type} {$midia->title} foi adicionado com sucesso, criem uma temporada");        
 
     }
 
@@ -55,8 +55,7 @@ class MidiaController extends Controller
    public function update(MidiaUpdateRequest $reques,Midia $midia){
 
         $midia = $this->repository->edt($reques, $midia);
-        $msg = "O {$midia->type} {$midia->title} foi atualizado com sucesso" ;
-        return to_route('midias.create')->with("msg",$msg);
+        return to_route('midias.create')->with("msg","O {$midia->type} {$midia->title} foi atualizado com sucesso");
 
     }
 

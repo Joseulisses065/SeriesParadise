@@ -3,6 +3,10 @@
     font-family: 'Russo';
     src: url('../fonts/Russo_One/RussoOne-Regular.ttf');
 }
+
+html {
+    scroll-behavior: smooth;
+  }
 .h-100dvh{
     min-height: 100dvh;
 }
@@ -26,7 +30,9 @@
 #card-slide-custom::-webkit-scrollbar{
     display: none;
 }
-
+#card-slide-custom {
+    scroll-behavior: smooth;
+  }
 @media (max-width:780px){
     .side-bar{
         position: absolute;

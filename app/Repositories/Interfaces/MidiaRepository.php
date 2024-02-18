@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories;
+namespace App\Repositories\Interfaces;
 
 use App\Http\Requests\MidiaCreateRequest;
 use App\Http\Requests\MidiaUpdateRequest;

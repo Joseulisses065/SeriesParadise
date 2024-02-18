@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EpisodeCreateRequest extends FormRequest
+class EpisodeUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,6 +26,6 @@ class EpisodeCreateRequest extends FormRequest
             'number'=>['required','min:1'],
             'episode_link'=>['required','min:5'],
             'description'=>['required','min:10','max:300'],
-            'banner'=>'required'        ];
-    }
+        ];
+}
 }

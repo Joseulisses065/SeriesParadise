@@ -40,4 +40,5 @@ Route::post('/{season}/episode/store',[EpisodeController::class,'store'])->name(
 
 
 Route::get('/episodes/{episode}',[EpisodeController::class,'index'])->name('episodes.index');
+Route::put('/episodes/view/{episode}',[EpisodeController::class,'view'])->name('episodes.view');
 

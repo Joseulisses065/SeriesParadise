@@ -6,9 +6,10 @@ use App\Http\Requests\MidiaUpdateRequest;
 use App\Models\Episode;
 use App\Models\Midia;
 use App\Models\Season;
+use App\Repositories\Interfaces\MidiaRepository as InterfacesMidiaRepository;
 use Illuminate\Support\Facades\DB;
 
-class EloquentMidiaRepository implements MidiaRepository{
+class EloquentMidiaRepository implements InterfacesMidiaRepository{
 
     public function add(MidiaCreateRequest $request){
 
@@ -27,42 +28,6 @@ class EloquentMidiaRepository implements MidiaRepository{
     
             $midia = Midia::create($data);
             
-            
-            /*
-            $seasons = [];
-            for ($i=1; $i <= $request->seasons; $i++) { 
-                $seasons[]=[
-                    'midia_id' => $midia->id,
-                    'number' => $i,
-                ];
-            }
-
-           
-            Season::insert($seasons);
-            
-            $episodes = [];
-
-
-             
-            $episodeBanner = $request->file('episodeBanner');
-            $episodeBannerPath = 'img/episodeBanner/'.$episodeBanner->hashName();
-            $episodeBanner->move(public_path('img/episodeBanner/'),$episodeBannerPath);
-
-            foreach ($midia->seasons as $season) {
-
-                
-                for ($j=0; $j <= $data['episodes']; $j++) { 
-
-                    $episodes[]=
-                    [
-                        'season_id' => $season->id,
-                        'number' => $j,
-                        'banner' => $episodeBannerPath,
-                    ];
-                }
-            }
-            Episode::insert($episodes);
-*/
             return $midia;
 
             

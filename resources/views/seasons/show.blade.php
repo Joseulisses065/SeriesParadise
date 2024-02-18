@@ -1,6 +1,21 @@
 <x-layout title="Home">
 
     <section class="min-vh-100 p-2">
+        @isset($msg)
+
+        <div class="alert alert-success  w-50 position-fixed" style="right: 5px; top:5px">
+            <div class="d-flex justify-content-between position-relative">
+                <ul class="m-0 list-unstyled">
+                    <li> {{ $msg }}
+                    </li>
+                </ul>
+                <a href="">
+                    <i class="bi bi-x-circle-fill text-dark fs-4"></i></a>
+            </div>
+        </div>
+
+
+        @endisset
         <section class="container " id="banner">
             <img class="img-fluid shadow-lg w-100 rounded" src="{{asset($midia->banner)}}" alt="">
 
@@ -40,12 +55,14 @@
                                 <div class="d-flex flex-column justify-content-between p-1 w-100">
 
                                     <div class="d-flex justify-content-center">
-                                        <form action="{{Route('episodes.edit',$season->episodes[$i]->id)}}" method="get">
+                                        <form action="{{Route('episodes.edit',$season->episodes[$i]->id)}}"
+                                            method="get">
                                             @csrf
                                             <button class="btn btn-transparent"><i
                                                     class="bi bi-pencil-square  text-light fs-3 pe"></i></button>
                                         </form>
-                                        <form action="{{Route('episodes.destroy',$season->episodes[$i]->id)}}" method="POST">
+                                        <form action="{{Route('episodes.destroy',$season->episodes[$i]->id)}}"
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-transparent"><i
@@ -58,7 +75,7 @@
                                         </form>
                                     </div>
 
-                                  
+
                                     <div>
                                         <p class="fw-bold m-0">{{$season->number.':E'.$season->episodes[$i]->number+1}}
                                         </p>

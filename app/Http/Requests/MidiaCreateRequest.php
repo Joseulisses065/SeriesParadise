@@ -24,7 +24,8 @@ class MidiaCreateRequest extends FormRequest
         return [
             'title'=>['required','min:5'],
             'type'=>['required','min:3'],
-            'description'=>['required','min:10','max:200'],
+            'categori'=>['required','min:3'],
+            'description'=>['required','min:10','max:300'],
             'img'=>'required',
             'banner'=>'required'
 

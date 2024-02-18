@@ -22,6 +22,10 @@ class MidiaUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'title'=>['required','min:5'],
+            'type'=>['required','min:3'],
+            'categori'=>['required','min:3'],
+            'description'=>['required','min:10','max:300'],
           
         ];
     }
