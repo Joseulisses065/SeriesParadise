@@ -35,9 +35,8 @@ class MidiaController extends Controller
     
     }
     public function create(){
-        $midias = Midia::all();
         $msg = session('msg');
-        return view('midias.create')->with('midias',$midias)->with('msg',$msg);
+        return view('midias.create')->with('msg',$msg);
     }
 
     public function store(MidiaCreateRequest $request){

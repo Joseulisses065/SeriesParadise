@@ -20,7 +20,7 @@
 
         </section>
 
-        <section class="pt-5 container ">
+        <section class="pt-2 container ">
             <div class="bg-opc d-flex justify-content-between text-danger rounded p-1 mb-3">
                 <h2 class="fs-4  fw-bold m-0 pt-1 f-russo">Popular Series</h2>
                 <div class="">

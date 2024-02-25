@@ -9,6 +9,22 @@
 
             <div class="container">
                 <div class="d-flex justify-content-start gap-3 flex-wrap mb-5">
+                <div class="card text-bg-dark" style="max-width: 12rem;min-width: 180px;">
+                        <img src="" class="card-img" alt="">
+                        <div class="card-img-overlay d-flex align-items-end p-0 card-bg w-100 h-100">
+                            <div class="d-flex justify-content-center align-items-center h-100 w-100">
+                               
+                                <div class="d-flex">
+                                 
+                                    <a href="{{route('midias.create')}}">
+                                        <div class="btn btn-transparent">
+                                            <i class="bi bi-plus-circle-fill fs-2 text-danger pe"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @isset($midias)
                     @if($midias)
                     @foreach($midias as $midia)
@@ -34,7 +50,7 @@
                                     </form>
                                     <a href="{{route('seasons.show',$midia->id)}}">
                                         <div class="btn btn-transparent">
-                                            <i class="bi bi-plus-circle-fill fs-3 text-light pe"></i>
+                                            <i class="bi bi-play-circle-fill fs-3 text-light pe"></i>
                                         </div>
                                     </a>
                                 </div>

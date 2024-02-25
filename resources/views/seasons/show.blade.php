@@ -43,6 +43,9 @@
                             @method('DELETE')
                             <button class="btn btn-transparent"><i class="bi bi-trash  text-danger pe"></i></button>
                         </form>
+                        <a href="{{route('seasons.create',$midia->id)}}" class="btn"><i
+                                class="bi bi-plus-circle-fill  text-danger pe"></i></button>
+                        </a>
                     </div>
                 </div>
 
@@ -108,12 +111,7 @@
 
 
             </div>
-            <div class="mb-3">
-                <div class="bg-opc d-flex justify-content-center text-danger rounded p-1 mb-3">
-                    <a href="{{route('seasons.create',$midia->id)}}" class=""><i
-                            class="bi bi-plus-circle-fill fs-2 text-danger pe"></i></button>
-                    </a>
-                </div>
+
         </section>
 
 

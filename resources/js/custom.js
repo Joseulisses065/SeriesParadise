@@ -5,11 +5,11 @@ const slide = document.querySelector('.card-slide');
 
 back.addEventListener('click',(evnt)=>{
 evnt.preventDefault();
-slide.scrollLeft+=200;
+slide.scrollLeft-=200;
 })
 
 next.addEventListener('click',(evnt)=>{
     evnt.preventDefault();
-    slide.scrollLeft-=200;
+    slide.scrollLeft+=200;
 
 })
