@@ -51,6 +51,7 @@ class MidiaController extends Controller
         return view('midias.edit')->with('midia',$midia);
     }
 
+   
     
    public function update(MidiaUpdateRequest $reques,Midia $midia){
 

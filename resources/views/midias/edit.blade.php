@@ -1,4 +1,4 @@
-<x-layout title="Home">
+<x-app-layout>
 
     <section class="min-vh-100 pt-2">
 
@@ -62,4 +62,4 @@
 
 
     </section>
-</x-layout>
+</x-app-layout>
