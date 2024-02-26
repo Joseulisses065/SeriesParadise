@@ -1,3 +1,6 @@
+import './bootstrap';
+
+
 const next = document.querySelector('.next');
 
 const back = document.querySelector('.return');

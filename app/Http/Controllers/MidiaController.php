@@ -42,7 +42,7 @@ class MidiaController extends Controller
     public function store(MidiaCreateRequest $request){
         
         $midia = $this->repository->add($request);
-        return to_route('seasons.create',$midia->id)->with('msg',"O {$midia->type} {$midia->title} foi adicionado com sucesso, criem uma temporada");        
+        return to_route('dashboard')->with('msg',"O {$midia->type} {$midia->title} foi adicionado com sucesso, criem uma temporada");        
 
     }
 
@@ -55,7 +55,7 @@ class MidiaController extends Controller
    public function update(MidiaUpdateRequest $reques,Midia $midia){
 
         $midia = $this->repository->edt($reques, $midia);
-        return to_route('midias.create')->with("msg","O {$midia->type} {$midia->title} foi atualizado com sucesso");
+        return to_route('dashboard')->with("msg","O {$midia->type} {$midia->title} foi atualizado com sucesso");
 
     }
 
@@ -73,7 +73,7 @@ class MidiaController extends Controller
         unlink($midia->img);
       
         
-        return to_route('midias.create')
+        return to_route('dashboard')
         ->with('msg', "O {$midia->type} {$midia->title} removida com sucesso");    
     }
 
